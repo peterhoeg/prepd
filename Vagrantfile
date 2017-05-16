@@ -20,7 +20,8 @@ Vagrant.configure(2) do |config|
     v.customize ['guestproperty', 'set', :id, '/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold', 10000 ]
     v.customize ['modifyvm', :id,
                  '--nictype1', 'virtio',
-                 '--paravirtprovider', 'kvm']
+                 '--paravirtprovider', 'kvm',
+                 '--chipset', 'ich9']
   end
 
   if Vagrant.has_plugin?('vagrant-hostmanager')
